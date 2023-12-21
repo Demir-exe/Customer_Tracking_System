@@ -8,10 +8,11 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateCustomerUserXAction {
-    protected String name;
+    private String name;
 
-    protected String surname;
+    private String surname;
 
-    protected String email;
-    protected  String  id;
+    private String email;
+
+
 }
