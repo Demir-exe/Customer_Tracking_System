@@ -1,5 +1,7 @@
 package com.akdenizbank.mls.user.service;
 
+import com.akdenizbank.mls.user.CustomerUser;
+import com.akdenizbank.mls.xaction.CreateCustomerUserXAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,8 @@ import com.akdenizbank.mls.xaction.CreateAdminUserXAction;
 
 @Service
 public class UserRegistrationService {
-
+    @Autowired
+    private CustomerUserService customerUserService;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
@@ -33,4 +36,13 @@ public class UserRegistrationService {
         adminUser.setEmail(xAction.getEmail());
         return adminUserService.create(adminUser);
     }
+
+    public CustomerUser registerCustomerUser(CreateCustomerUserXAction xAction){
+        CustomerUser customerUser=new CustomerUser();
+        customerUser.setName(xAction.getName());
+        customerUser.setSurname(xAction.getSurname());
+        customerUser.setEmail(xAction.getEmail());
+        return customerUserService.create(customerUser);
+    }
+
 }

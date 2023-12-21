@@ -1,5 +1,8 @@
 package com.akdenizbank.mls.user.controller;
 
+import com.akdenizbank.mls.user.CustomerUser;
+import com.akdenizbank.mls.user.service.CustomerUserService;
+import com.akdenizbank.mls.xaction.CreateCustomerUserXAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,7 +24,8 @@ import com.akdenizbank.mls.xaction.CreateAdminUserXAction;
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
-
+    @Autowired
+    private CustomerUserService customerUserService;
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -59,6 +63,15 @@ public class AuthController {
             accessToken = this.jwtService.generateAccessToken(user);
         }
         return new GenericApiResponse(200, "Success", "3487529", accessToken);
+    }
+
+    @PostMapping("/user-registrations/customers")
+    public GenericApiResponse createCustomerUser(@RequestBody CreateCustomerUserXAction xAction){
+        CustomerUser customerUser=customerUserService.getCustomerByID(xAction.getId());
+        if (customerUser == null) {
+            customerUser = userRegistrationService.registerCustomerUser(xAction);
+        }
+        return new GenericApiResponse(200, "Success", "123123", customerUser);
     }
 
 }
