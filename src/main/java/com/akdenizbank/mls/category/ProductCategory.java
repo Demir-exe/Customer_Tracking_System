@@ -16,14 +16,11 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
-
-
 @Entity
 @Getter
 @Setter
 public class ProductCategory {
 
-    
     @Id
     @GenericGenerator(name = "random-15", type = StringSequenceIdentifier.class, parameters = @org.hibernate.annotations.Parameter(name = "length", value = "15"))
     @GeneratedValue(generator = "random-15")
