@@ -14,5 +14,8 @@ public class CreateCustomerUserXAction {
 
     private String email;
 
+    public String getId() {
+        return null;
+    }
 
 }

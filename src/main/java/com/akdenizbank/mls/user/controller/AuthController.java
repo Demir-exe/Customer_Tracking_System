@@ -66,8 +66,8 @@ public class AuthController {
     }
 
     @PostMapping("/user-registrations/customers")
-    public GenericApiResponse createCustomerUser(@RequestBody CreateCustomerUserXAction xAction){
-        CustomerUser customerUser=customerUserService.getCustomerByID(xAction.getId());
+    public GenericApiResponse createCustomerUser(@RequestBody CreateCustomerUserXAction xAction) {
+        CustomerUser customerUser = customerUserService.getCustomerByID(xAction.getId());
         if (customerUser == null) {
             customerUser = userRegistrationService.registerCustomerUser(xAction);
         }
