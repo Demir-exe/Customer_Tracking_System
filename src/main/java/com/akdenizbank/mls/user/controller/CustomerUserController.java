@@ -3,6 +3,7 @@ package com.akdenizbank.mls.user.controller;
 import com.akdenizbank.mls.generic.rest.GenericApiResponse;
 import com.akdenizbank.mls.user.CustomerUser;
 import com.akdenizbank.mls.user.service.CustomerUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/users/customer-users")
 public class CustomerUserController {
+    @Autowired
     private CustomerUserService customerUserService;
 
 
