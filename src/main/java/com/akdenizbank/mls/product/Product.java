@@ -25,6 +25,9 @@ public class Product {
     @GeneratedValue(generator = "random-15")
     private String id;
 
+    private String name;
+    private  String price;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private ProductCategory category;

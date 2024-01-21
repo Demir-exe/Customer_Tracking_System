@@ -1,6 +1,4 @@
 package com.akdenizbank.mls.user.service;
-
-import com.akdenizbank.mls.user.AdminUser;
 import com.akdenizbank.mls.user.CustomerUser;
 import com.akdenizbank.mls.user.repository.CustomerUserRepository;
 import org.springframework.data.domain.Page;
