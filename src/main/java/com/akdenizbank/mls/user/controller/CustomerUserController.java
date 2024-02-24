@@ -38,4 +38,8 @@ public class CustomerUserController {
         customerUserService.deleteCustomer(id);
         return new GenericApiResponse(200,"Success","123123");
     }
+    @GetMapping("/customer-list")
+    public String showCustomerList() {
+        return "customer-list";
+    }
 }
